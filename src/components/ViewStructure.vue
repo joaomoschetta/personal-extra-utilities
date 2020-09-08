@@ -1,17 +1,11 @@
 <template>
   <div class="structure">
     <div class="main-grid">
-      <nav class="side-nav-bar">
-        <PageNavBar />
-      </nav>
-      <main class="main-content">
-        <MainContent />
-      </main>
+      <PageNavBar class="side-nav-bar"/>
+      <MainContent class="main-content"/>
     </div>
 
-    <footer>
-      <Footer />
-    </footer>
+    <Footer class=".footer"/>
   </div>
 </template>
 
@@ -32,13 +26,12 @@ export default {
 <style lang="scss">
   .structure {
     height: 100vh;
-    overflow: hidden;
 
     .main-grid {
       height: calc(100vh - 50px);
 
       display: grid;
-      grid-template-columns: 150px auto;
+      grid-template-columns: 130px auto;
       grid-template-areas: 
         "nav main";
 
@@ -52,7 +45,7 @@ export default {
       }
     }
 
-    footer{
+    .footer{
       height: 50px;
     }
   }
