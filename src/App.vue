@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    a
     <router-view></router-view>
   </div>
 </template>
@@ -21,6 +20,7 @@ export default {
 @import "./scss/_variables";
 * {
   font-family: $main-font;
+  font-size: 1.2rem;
 }
 
 // reset css
@@ -29,5 +29,6 @@ export default {
   padding: 0;
   border: 0;
   box-sizing: border-box;
+  
 }
 </style>
