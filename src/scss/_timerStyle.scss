@@ -1,0 +1,29 @@
+@import "./variables";
+
+.timer {
+  background: $primary-light-color;
+
+  display: flex;
+  justify-content: space-around;
+
+  .left, .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  p {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .time-display {
+    font-weight: normal;
+    font-size: 2.3rem;
+  }
+
+  img {
+    width: 60px;
+  }
+}
