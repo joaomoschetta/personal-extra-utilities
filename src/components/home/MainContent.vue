@@ -58,7 +58,6 @@ export default {
 
         border-radius: 15px;
         padding: 1rem;  
-        background: yellow;
 
         &:nth-child(3) {
           margin-right: 0;
