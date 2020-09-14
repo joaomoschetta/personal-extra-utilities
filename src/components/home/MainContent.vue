@@ -7,7 +7,8 @@
     </div>
 
     <div class="note-pads">
-
+      <NotePad />
+      <NotePad />
     </div>
 
     <div class="utils">
@@ -20,12 +21,14 @@
 import ProgressiveTimer from './Timers/Progressive';
 import RegressiveTimer from './Timers/Regressive';
 import PomodoroTimer from './Timers/Pomodoro';
+import NotePad from './Notes';
 
 export default {
     components: {
       ProgressiveTimer,
       RegressiveTimer,
       PomodoroTimer,
+      NotePad,
     },
 }
 </script>
@@ -67,6 +70,11 @@ export default {
 
     .note-pads {
       grid-area: note;
+      display: flex;
+      
+      *:first-child {
+        margin-right: 30px;
+      }
     }
 
     .utils {
