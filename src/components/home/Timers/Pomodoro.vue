@@ -63,11 +63,17 @@
 
         img {
           width: 50px;
+          border-radius: 10px;
+
+          &:hover {
+            cursor: pointer;
+            background: $secondary-light-color;
+          }
         }
 
         .reset {
-          width: 38px;
-          margin: 0 5px;
+          width: 50px;
+          padding: 6px;
         }
       }
 
@@ -86,6 +92,10 @@
           p {
             font-size: 1.1rem;
             font-weight: 700;
+          }
+
+          &:hover {
+            cursor: pointer;
           }
         }
 

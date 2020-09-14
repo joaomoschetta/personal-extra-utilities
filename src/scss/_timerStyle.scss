@@ -25,5 +25,11 @@
 
   img {
     width: 60px;
+    border-radius: 10px;
+
+    &:hover {
+      cursor: pointer;
+      background: $primary-color;
+    }
   }
 }
