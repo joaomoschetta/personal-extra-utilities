@@ -12,7 +12,7 @@
     </div>
 
     <div class="utils">
-      <Checklist />
+      <Checklist class="checklist" />
       <DailyUpdate />
     </div>
   </main>
@@ -84,6 +84,14 @@ export default {
 
     .utils {
       grid-area: utils;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .checklist {
+        flex-grow: 1;
+      }
     }
   }
 </style>
