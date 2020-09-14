@@ -12,7 +12,7 @@
     </div>
 
     <div class="utils">
-
+      <Checklist />
     </div>
   </main>
 </template>
@@ -22,6 +22,7 @@ import ProgressiveTimer from './Timers/Progressive';
 import RegressiveTimer from './Timers/Regressive';
 import PomodoroTimer from './Timers/Pomodoro';
 import NotePad from './Notes';
+import Checklist from './Checklist';
 
 export default {
     components: {
@@ -29,6 +30,7 @@ export default {
       RegressiveTimer,
       PomodoroTimer,
       NotePad,
+      Checklist,
     },
 }
 </script>
