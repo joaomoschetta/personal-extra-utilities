@@ -13,6 +13,7 @@
 
     <div class="utils">
       <Checklist />
+      <DailyUpdate />
     </div>
   </main>
 </template>
@@ -23,6 +24,7 @@ import RegressiveTimer from './Timers/Regressive';
 import PomodoroTimer from './Timers/Pomodoro';
 import NotePad from './Notes';
 import Checklist from './Checklist';
+import DailyUpdate from './Form';
 
 export default {
     components: {
@@ -31,6 +33,7 @@ export default {
       PomodoroTimer,
       NotePad,
       Checklist,
+      DailyUpdate,
     },
 }
 </script>
