@@ -2,7 +2,17 @@
   <div class="timer">
     <div class="left">
       <p>Progressive Timer</p>
-      <p class="time-display">00:00</p>
+      <p class="time-display">
+        <input 
+          type="number"
+          :value="minuteElement"
+        >
+        :
+        <input
+          type="number" 
+          :value="secondElement"
+        >
+      </p>
     </div>
 
     <div class="right">
@@ -11,6 +21,20 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      minuteElement: "00",
+      secondElement: "00"
+    };
+  },
+  methods: {
+    
+  },
+}
+</script>
 
 <style scoped lang="scss">
   @import "@/scss/_timerStyle.scss";

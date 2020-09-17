@@ -13,6 +13,33 @@
     align-items: center;
   }
 
+  .time-display {
+    display: flex;
+
+    input {
+      align-self: center;
+      width: 90px;
+      background: none;
+      font-size: 2.3rem;
+
+        &:nth-child(1) {
+          text-align: right;
+        }
+
+        // hide border when selected
+        &:focus {
+          outline: none;
+        }
+
+        // hide side arrows
+        &::-webkit-inner-spin-button, 
+        &::-webkit-outer-spin-button {
+          -webkit-appearance: none; 
+          margin: 0; 
+        }
+    }
+  }
+
   p {
     font-weight: 700;
     font-size: 1.25rem;
