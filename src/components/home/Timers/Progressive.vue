@@ -1,41 +1,36 @@
 <template>
   <div class="timer">
-    <div class="left">
-      <p>Progressive Timer</p>
-      <p class="time-display">
-        <input 
-          type="number"
-          :value="minuteElement"
-        >
-        :
-        <input
-          type="number" 
-          :value="secondElement"
-        >
-      </p>
-    </div>
-
-    <div class="right">
-      <img src="@/assets/play-icon.png" alt="Play icon">
-      <img src="@/assets/pause-icon.png" alt="Pause icon">
-    </div>
+    <TimerLeft class="left" :progressive="true" :timerTitle="'Progressive Timer'" />
+    <TimerRight class="right" />
   </div>
 </template>
 
 <script>
+import TimerLeft from '@/components/home/TimerLeft';
+import TimerRight from '@/components/home/TimerRight';
+
 export default {
-  data() {
-    return {
-      minuteElement: "00",
-      secondElement: "00"
-    };
+  components: {
+    TimerLeft,
+    TimerRight
   },
-  methods: {
-    
-  },
-}
+};
 </script>
 
 <style scoped lang="scss">
-  @import "@/scss/_timerStyle.scss";
+  @import "@/scss/_variables.scss";
+
+  .timer {
+    background: $primary-light-color;
+
+    display: flex;
+    justify-content: space-around;
+
+    .left, .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
 </style>
