@@ -1,17 +1,36 @@
 <template>
   <div class="timer">
-    <div class="left">
-      <p>Regressive Timer</p>
-      <p class="time-display">00:00</p>
-    </div>
-
-    <div class="right">
-      <img src="@/assets/play-icon.png" alt="Play icon">
-      <img src="@/assets/pause-icon.png" alt="Pause icon">
-    </div>
+    <TimerLeft class="left" :progressive="false" :timerTitle="'Regressive Timer'" />
+    <TimerRight class="right" />
   </div>
 </template>
 
+<script>
+import TimerLeft from '@/components/home/Timers/TimerLeft';
+import TimerRight from '@/components/home/Timers/TimerRight';
+
+export default {
+  components: {
+    TimerLeft,
+    TimerRight
+  },
+};
+</script>
+
 <style scoped lang="scss">
-  @import "@/scss/_timerStyle.scss";
+  @import "@/scss/_variables.scss";
+
+  .timer {
+    background: $primary-light-color;
+
+    display: flex;
+    justify-content: space-around;
+
+    .left, .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
 </style>
