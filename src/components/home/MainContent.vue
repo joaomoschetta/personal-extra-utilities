@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import ProgressiveTimer from './Timers/Progressive';
-import RegressiveTimer from './Timers/Regressive';
-import PomodoroTimer from './Timers/Pomodoro';
+import ProgressiveTimer from './Progressive';
+import RegressiveTimer from './Regressive';
+import PomodoroTimer from './Pomodoro';
 import NotePad from './Notes';
 import Checklist from './Checklist';
 import DailyUpdate from './Form';

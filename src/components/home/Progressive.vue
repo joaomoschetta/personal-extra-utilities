@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import TimerLeft from '@/components/home/TimerLeft';
-import TimerRight from '@/components/home/TimerRight';
+import TimerLeft from '@/components/home/Timers/TimerLeft';
+import TimerRight from '@/components/home/Timers/TimerRight';
 
 export default {
   components: {
