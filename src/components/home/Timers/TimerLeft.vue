@@ -2,9 +2,19 @@
   <div class="left">
     <p @click="playtest()">{{ timerTitle }}</p>
     <div class="time-display">
-      <input type="number" min="0" v-model="minuteElement" >
+      <input 
+        type="number"
+        min="0"
+        v-model="minuteElement"
+        :class="{disabled: isPomodoro}"
+      >
       :
-      <input type="number" min="0" v-model="secondElement" >
+      <input 
+        type="number"
+        min="0"
+        v-model="secondElement"
+        :class="{disabled: isPomodoro}"
+      >
     </div>
   </div>
 </template>
@@ -15,7 +25,7 @@ import doubleDigit from "@/utils/doubleDigit.js";
 export default {
   data() {
     return {
-      minuteElement: "00",
+      minuteElement: "01",
       secondElement: "00",
       timerInterval: undefined,
       running: false,
@@ -24,8 +34,11 @@ export default {
   props: {
     progressive: Boolean,
     timerTitle: String,
-    playAuxiliarVar: Number,
-    pauseAuxiliarVar: Number
+    isPomodoro: Boolean,
+    pomodoroTime: String,
+    playTrigger: Number,
+    pauseTrigger: Number,
+    resetTrigger: Number
   },
   methods: {
     displayTime: function(mins, secs) {
@@ -78,15 +91,27 @@ export default {
     pauseTimer: function() {
       window.clearInterval(this.timerInterval);
       this.running = false;
+    },
+    pomodoro: function() {
+      if(this.running) this.pauseTimer();
+      this.minuteElement = this.pomodoroTime;
+      this.secondElement = "00";
+      this.timer();
     }
   },
   watch: {
-    playAuxiliarVar: function() {
+    playTrigger: function() {
       this.timer();
     },
-    pauseAuxiliarVar: function() {
+    pauseTrigger: function() {
       this.pauseTimer();
-    }
+    },
+    resetTrigger: function() {
+      this.pomodoro();
+    },
+    pomodoroTime: function() {
+      this.pomodoro();
+    },
   },
 }
 </script>
@@ -118,6 +143,11 @@ export default {
           -webkit-appearance: none; 
           margin: 0; 
         }
+    }
+
+    .disabled {
+      pointer-events: none;
+      width: 60px;
     }
   }
 

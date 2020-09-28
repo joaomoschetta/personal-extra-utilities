@@ -1,30 +1,73 @@
 <template>
   <div class="timer">
-    <div class="left">
-      <p>Pomodoro</p>
-      <p class="time-display">00:00</p>
-    </div>
+    <TimerLeft
+      :progressive="false"
+      :timerTitle="'Pomodoro'"
+      :isPomodoro="true"
+      :pomodoroTime="pomodoroTime"
+      :playTrigger="playTrigger"
+      :pauseTrigger="pauseTrigger"
+      :resetTrigger="resetTrigger"
+    />
 
     <div class="right">
       <div class="top-line">
-        <img src="@/assets/pause-icon.png" alt="Play icon">
-        <img src="@/assets/play-icon.png" alt="Pause icon">
-        <img class="reset" src="@/assets/arrow-loop-icon.png" alt="Reset arrow icon">
+        <img src="@/assets/play-icon.png" @click="playTriggerMethod()" alt="Pause icon">
+        <img src="@/assets/pause-icon.png" @click="pauseTriggerMethod()" alt="Play icon">
+        <img class="reset" src="@/assets/arrow-loop-icon.png" @click="resetTriggerMethod()" alt="Reset arrow icon">
       </div>
       <div class="bottom-line">
-        <div class="pomodoro-break">
+        <div class="pomodoro-break" @click="pomodoro()">
           <p>PM</p>
         </div>
-        <div class="partial-break">
+        <div class="partial-break" @click="shortBreak()">
           <p class="partial-break">SB</p>
         </div>
-        <div class="partial-break">
+        <div class="partial-break" @click="longBreak()">
           <p class="partial-break">LB</p>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import TimerLeft from '@/components/home/Timers/TimerLeft';
+
+export default {
+  components: {
+    TimerLeft
+  },
+  data() {
+    return {
+      pomodoroTime: "00",
+      playTrigger: 0,
+      pauseTrigger: 0,
+      resetTrigger: 0
+    }
+  },
+  methods: {
+    playTriggerMethod: function() {
+      this.playTrigger++;
+    },
+    pauseTriggerMethod: function() {
+      this.pauseTrigger++;
+    },
+    resetTriggerMethod: function() {
+      this.resetTrigger++;
+    },
+    pomodoro: function() {
+      this.pomodoroTime = "25";
+    },
+    shortBreak: function() {
+      this.pomodoroTime = "05";
+    },
+    longBreak: function() {
+      this.pomodoroTime = "10";
+    },
+  },
+}
+</script>
 
 <style lang="scss">
   @import "@/scss/_variables.scss";
@@ -37,18 +80,8 @@
     .left {
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: space-evenly;
-
-      p {
-        font-weight: 700;
-        font-size: 1.25rem;
-      }
-
-      .time-display {
-        font-weight: normal;
-        font-size: 2.3rem;
-      }
+      align-items: center;
     }
 
     .right {
