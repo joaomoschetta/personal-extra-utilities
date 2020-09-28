@@ -1,7 +1,17 @@
 <template>
   <div class="timer">
-    <TimerLeft class="left" :progressive="true" :timerTitle="'Progressive Timer'" />
-    <TimerRight class="right" />
+    <TimerLeft
+      class="left"
+      :progressive="true"
+      :timerTitle="'Progressive Timer'"
+      :playAuxiliarVar="playAuxiliarVar"
+      :pauseAuxiliarVar="pauseAuxiliarVar"
+    />
+    <TimerRight
+      class="right"
+      @play_timer_call="playAuxiliarMethod"
+      @pause_timer_call="pauseAuxiliarMethod"
+    />
   </div>
 </template>
 
@@ -10,6 +20,20 @@ import TimerLeft from '@/components/home/Timers/TimerLeft';
 import TimerRight from '@/components/home/Timers/TimerRight';
 
 export default {
+  data() {
+    return {
+      playAuxiliarVar: 0,
+      pauseAuxiliarVar: 0
+    }
+  },
+  methods: {
+    playAuxiliarMethod() {
+      this.playAuxiliarVar++;
+    },
+    pauseAuxiliarMethod() {
+      this.pauseAuxiliarVar++;
+    }
+  },
   components: {
     TimerLeft,
     TimerRight

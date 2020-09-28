@@ -22,8 +22,10 @@ export default {
     };
   },
   props: {
+    progressive: Boolean,
     timerTitle: String,
-    progressive: Boolean
+    playAuxiliarVar: Number,
+    pauseAuxiliarVar: Number
   },
   methods: {
     displayTime: function(mins, secs) {
@@ -34,11 +36,11 @@ export default {
       this.secondElement = secs;
     },
     timer: function() {
-      let mins = Number(this.minuteElement);
-      let secs = Number(this.secondElement);
-
       if(this.running) return;
       this.running = true;
+
+      let mins = Number(this.minuteElement);
+      let secs = Number(this.secondElement);
 
 
       this.timerInterval = setInterval(() => {
@@ -78,14 +80,14 @@ export default {
       this.running = false;
     }
   },
-  mounted() {
-    this.$root.$on('play_timer_call', () => {
+  watch: {
+    playAuxiliarVar: function() {
       this.timer();
-    });
-    this.$root.$on('pause_timer_call', () => {
+    },
+    pauseAuxiliarVar: function() {
       this.pauseTimer();
-    });
-  }
+    }
+  },
 }
 </script>
 

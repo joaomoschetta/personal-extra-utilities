@@ -9,11 +9,11 @@
 export default {
   methods: {
     playTimer: function() {
-      this.$root.$emit('play_timer_call');
+      this.$emit('play_timer_call');
     },
     pauseTimer: function() {
-      this.$root.$emit('pause_timer_call');
-    } 
+      this.$emit('pause_timer_call');
+    }
   }
 }
 </script>
