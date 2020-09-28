@@ -4,13 +4,13 @@
       class="left"
       :progressive="true"
       :timerTitle="'Progressive Timer'"
-      :playAuxiliarVar="playAuxiliarVar"
-      :pauseAuxiliarVar="pauseAuxiliarVar"
+      :playTrigger="playTrigger"
+      :pauseTrigger="pauseTrigger"
     />
     <TimerRight
       class="right"
-      @play_timer_call="playAuxiliarMethod"
-      @pause_timer_call="pauseAuxiliarMethod"
+      @play_timer_call="playTriggerMethod"
+      @pause_timer_call="pauseTriggerMethod"
     />
   </div>
 </template>
@@ -22,16 +22,16 @@ import TimerRight from '@/components/home/Timers/TimerRight';
 export default {
   data() {
     return {
-      playAuxiliarVar: 0,
-      pauseAuxiliarVar: 0
+      playTrigger: 0,
+      pauseTrigger: 0
     }
   },
   methods: {
-    playAuxiliarMethod() {
-      this.playAuxiliarVar++;
+    playTriggerMethod() {
+      this.playTrigger++;
     },
-    pauseAuxiliarMethod() {
-      this.pauseAuxiliarVar++;
+    pauseTriggerMethod() {
+      this.pauseTrigger++;
     }
   },
   components: {
