@@ -83,6 +83,10 @@ export default {
             mins--;
           } else if (secs <= 0 && mins <= 0) {
             this.pauseTimer();
+
+            let audio = new Audio(require('@/assets/bell.mp3'));
+            audio.volume = 0.5;
+            audio = audio.play();
           }
         }
         this.displayTime(mins, secs);
