@@ -20,7 +20,7 @@ import TimerLeft from '@/components/home/Timers/TimerLeft';
 import TimerRight from '@/components/home/Timers/TimerRight';
 
 export default {
-  data() {
+  data: function () {
     return {
       playTrigger: 0,
       pauseTrigger: 0

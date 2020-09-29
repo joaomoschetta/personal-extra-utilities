@@ -1,6 +1,16 @@
 <template>
-  <textarea type="text" />
+  <textarea type="text" v-model="text" />
 </template>
+
+<script>
+export default {
+  data: function() {
+    return {
+      text: "teste"
+    }
+  }
+}
+</script>
 
 <style scoped lang="scss">
 

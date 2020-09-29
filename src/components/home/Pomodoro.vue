@@ -38,7 +38,7 @@ export default {
   components: {
     TimerLeft
   },
-  data() {
+  data: function () {
     return {
       pomodoroTime: "00",
       playTrigger: 0,

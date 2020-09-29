@@ -23,7 +23,7 @@
 import doubleDigit from "@/utils/doubleDigit.js";
 
 export default {
-  data() {
+  data: function () {
     return {
       minuteElement: "01",
       secondElement: "00",
