@@ -6,9 +6,19 @@
 export default {
   data: function() {
     return {
-      text: "teste"
+      text: ""
     }
-  }
+  },
+  mounted() {
+    if (localStorage[this._uid]) {
+      this.text = localStorage[this._uid];
+    }
+  },
+  watch: {
+    text(newText) {
+      localStorage[this._uid] = newText;
+    }
+  },
 }
 </script>
 
