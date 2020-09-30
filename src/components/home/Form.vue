@@ -2,20 +2,45 @@
   <div class="daily-update">
     <form>
       <p>Daily update</p>
-      <input type="text" placeholder="Message">
+      <input type="text" v-model="formMessage.message" placeholder="Message">
       <div class="time">
-        <input id="minutes" type="number">
+        <input id="minutes" v-model="formMessage.time"  type="number">
         <label for="minutes">Time (in minutes)</label>
       </div>
       <div class="section-send">
-        <select id="section">
-          <option value="0">Design</option>
+        <select id="section" v-model="formMessage.selected">
+          <option v-for="(option, index) in options" :key="index" :value="option.value">
+            {{ option.text }}
+          </option>
         </select>
-        <input type="submit" value="Send">
+        <input type="submit" @click="submit()" value="Send">
       </div>
     </form>
   </div>
 </template>
+
+<script>
+export default {
+  data: function() {
+    return {
+      options: [
+        {value: 0, text: "Design"},
+        {value: 1, text: "Web"}
+      ],
+      formMessage: {
+        message: "",
+        time: 0,
+        selected: null,
+      }
+    }
+  },
+  methods: {
+    submit: function() {
+      console.log(this.formMessage);
+    }
+  },
+}
+</script>
 
 <style lang="scss">
   @import "@/scss/_variables.scss";
@@ -30,6 +55,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      input, select {
+        outline: none;
+      }
 
       input[placeholder="Message"],
       .time,
@@ -55,6 +84,14 @@
         input {
           width: 100px;
           text-align: center;
+
+          &::-webkit-inner-spin-button, 
+          &::-webkit-outer-spin-button { 
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0; 
+          }
         }
 
         label {
@@ -76,6 +113,9 @@
           text-align: center;
           text-align-last: center;
           -moz-text-align-last: center;
+
+          //re-style arrow of select dropdown
+          @import "@/scss/_selectArrow.scss";
         }
 
         input {
