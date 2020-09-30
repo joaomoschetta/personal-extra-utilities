@@ -1,13 +1,17 @@
 <template>
   <nav>
     <ul>
-      <li alt="Home navigation button">
-        <img src="@/assets/home-icon.png" alt="House icon">
-      </li>
+      <router-link to="/">
+        <li alt="Home navigation button">
+          <img src="@/assets/home-icon.png" alt="House icon">
+        </li>
+      </router-link>
       <div class="separate-bar"></div>
-      <li alt="Spreasheet navigation button">
-        <img src="@/assets/sheet-icon.svg" alt="Spreadsheet icon">
-      </li>
+      <router-link to="/spreadsheet">
+        <li alt="Spreasheet navigation button">
+          <img src="@/assets/sheet-icon.svg" alt="Spreadsheet icon">
+        </li>
+      </router-link>
       <div class="separate-bar"></div>
       <li alt="Help navigation button">
         <img src="@/assets/interrogation-icon.png" alt="Interrogation icon">
