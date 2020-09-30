@@ -38,12 +38,12 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   @import "@/scss/_variables";
 
   main {
     background: $background-color;
-    padding: 2.5rem 8rem;
+    padding: 2.5rem 6rem;
 
     display: grid;
     grid-template-areas: 
