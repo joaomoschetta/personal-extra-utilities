@@ -13,7 +13,7 @@
             {{ option.text }}
           </option>
         </select>
-        <input type="submit" @click="submit()" value="Send">
+        <input type="submit" @click.prevent="submit()" value="Send">
       </div>
     </form>
   </div>
