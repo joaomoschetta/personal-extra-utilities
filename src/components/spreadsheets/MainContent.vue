@@ -30,6 +30,7 @@ export default {
     background: $background-color;
     padding: 2.5rem 6rem;
     font-size: 1rem;
+    overflow: auto;
 
     .top-line {
       display: flex;
