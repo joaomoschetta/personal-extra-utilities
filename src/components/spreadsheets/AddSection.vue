@@ -1,9 +1,32 @@
 <template>
   <div class="add-section">
-    <input type="text" placeholder="New Section">
-    <button>+ Add Section</button>
+    <input type="text" v-model="newSection" placeholder="New Section">
+    <button @click="addSection()">+ Add Section</button>
   </div>
 </template>
+
+<script>
+export default {
+  data: function() {
+    return {
+      sections: [],
+      newSection: ''
+    }
+  },
+  methods: {
+    addSection: function() {
+      console.log(this.newSection);
+
+      // return if the value is null or if it already exists
+      if (this.newSection == "") return;
+      if (this.sections.some(section => section == this.newSection)) return;
+
+      this.sections.push(this.newSection);
+      this.newSection = "";
+    }
+  },
+}
+</script>
 
 <style lang="scss">
   @import "@/scss/_variables.scss";
