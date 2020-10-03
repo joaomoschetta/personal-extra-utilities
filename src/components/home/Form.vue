@@ -4,13 +4,14 @@
       <p>Daily update</p>
       <input type="text" v-model="formMessage.message" placeholder="Message">
       <div class="time">
-        <input id="minutes" v-model="formMessage.time"  type="number">
+        <input id="minutes" v-model="formMessage.time"  type="number" >
         <label for="minutes">Time (in minutes)</label>
       </div>
       <div class="section-send">
-        <select id="section" v-model="formMessage.selected">
-          <option v-for="(option, index) in options" :key="index" :value="option.value">
-            {{ option.text }}
+        <select id="section" v-model="formMessage.selected" required>
+          <option value="0" selected disabled>Selecte a section</option>
+          <option v-for="(option, index) in options" :key="index" :value="index">
+            {{ option }}
           </option>
         </select>
         <input type="submit" @click.prevent="submit()" value="Send">
@@ -23,20 +24,23 @@
 export default {
   data: function() {
     return {
-      options: [
-        {value: 0, text: "Design"},
-        {value: 1, text: "Web"}
-      ],
+      options: JSON.parse(localStorage.getItem("sections")) || [],
       formMessage: {
         message: "",
         time: 0,
-        selected: null,
+        selected: 0,
       }
     }
   },
   methods: {
     submit: function() {
       console.log(this.formMessage);
+
+      this.$root.$emit('form_message_emit', this.formMessage);
+
+      this.formMessage.message = "";
+      this.formMessage.time = 0;
+      this.formMessage.selected = 0;
     }
   },
 }
