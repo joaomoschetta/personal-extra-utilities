@@ -9,19 +9,19 @@
 export default {
   data: function() {
     return {
-      sections: [],
+      sections: JSON.parse(localStorage.getItem("sections")) || [],
       newSection: ''
     }
   },
   methods: {
     addSection: function() {
-      console.log(this.newSection);
-
       // return if the value is null or if it already exists
       if (this.newSection == "") return;
       if (this.sections.some(section => section == this.newSection)) return;
 
       this.sections.push(this.newSection);
+      localStorage.setItem("sections", JSON.stringify(this.sections));
+
       this.newSection = "";
     }
   },
