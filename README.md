@@ -1,4 +1,4 @@
-# personal_extra_utilities
+# Personal extra utilities
 
 ## About
 
