@@ -8,9 +8,9 @@
         <label for="minutes">Time (in minutes)</label>
       </div>
       <div class="section-send">
-        <select id="section" v-model="formMessage.selected" required>
+        <select id="section" v-model="formMessage.section" required>
           <option value="0" selected disabled>Selecte a section</option>
-          <option v-for="(option, index) in options" :key="index" :value="index">
+          <option v-for="(option, index) in options" :key="index" :value="option">
             {{ option }}
           </option>
         </select>
@@ -25,22 +25,34 @@ export default {
   data: function() {
     return {
       options: JSON.parse(localStorage.getItem("sections")) || [],
+      table: JSON.parse(localStorage.getItem("table")) || [],
       formMessage: {
-        message: "",
+        date: this.getDate(),
+        section: "",
+        message: "mensagem",
         time: 0,
-        selected: 0,
       }
     }
   },
   methods: {
     submit: function() {
-      console.log(this.formMessage);
+      //console.log(this.formMessage);
 
-      this.$root.$emit('form_message_emit', this.formMessage);
+      //this.$root.$emit('form_message_emit', this.formMessage);
+      this.table.unshift(this.formMessage);
+      localStorage.setItem("table", JSON.stringify(this.table));
 
       this.formMessage.message = "";
-      this.formMessage.time = 0;
+      this.formMessage.time = 0;    
       this.formMessage.selected = 0;
+    },
+    getDate: function() {
+      let dateObj = new Date();
+      let month = dateObj.getUTCMonth() + 1;
+      let day = dateObj.getUTCDate();
+      let year = String(dateObj.getUTCFullYear()).slice(0, 2);
+
+      return `${month}/${day}/${year}`;
     }
   },
 }

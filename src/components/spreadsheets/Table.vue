@@ -12,7 +12,7 @@
       </thead>
       <tbody>
         <tr v-for="(item, index) in tableItems" :key="index" >
-          <th scope="row">{{ item.id }}</th>
+          <th scope="row">{{ index }}</th>
           <td>{{ item.date }}</td>
           <td>{{ item.section }}</td>
           <td>{{ item.message }}</td>
@@ -27,10 +27,7 @@
 export default {
   data: function() {
     return {
-      tableItems: [
-        {id: 1, date: "09/01/20", section: "Design", message: "Testing Adobe XD", time: 240},
-        {id: 2, date: "09/02/20", section: "Web Development", message: "Finishing project 05 (js)", time: 270}
-      ]
+      tableItems: JSON.parse(localStorage["table"]) || []
     }
   },
 }
