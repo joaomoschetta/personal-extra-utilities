@@ -1,7 +1,10 @@
 <template>
   <div class="total-time">
-    <select>
-      <option value="0">Design</option>
+    <select v-model="selected">
+      <option selected disabled>Select a section</option>
+      <option v-for="(option, index) in options" :key="index">
+        {{ option }}
+      </option>
     </select>
     <p>Total time: {{ time }}</p>
   </div>
@@ -11,8 +14,20 @@
 export default {
   data: function() {
     return {
-      time: 10000
+      options: JSON.parse(localStorage.getItem("sections")) || [],
+      selected: "",
+      time: 0,
     }
+  },
+  watch: {
+    selected: function() {
+      this.$root.$emit('message_time', this.selected);
+    }
+  },
+  mounted() {
+    this.$root.$on('total_time_message', totalSectionTime => {
+      this.time = totalSectionTime;
+    })
   },
 }
 </script>

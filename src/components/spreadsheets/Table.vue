@@ -30,6 +30,20 @@ export default {
       tableItems: JSON.parse(localStorage["table"]) || []
     }
   },
+  mounted() {
+    this.$root.$on('message_time', selected => {
+      let filtered = this.tableItems.filter(item => {
+        if(item.section == selected) {
+          return true;
+        }
+      });
+      let totalSectionTime = filtered
+        .map(item => Number(item.time))
+        .reduce((acc, cur) => acc + cur, 0);
+      
+      this.$root.$emit('total_time_message', totalSectionTime);
+    })
+  },
 }
 </script>
 
