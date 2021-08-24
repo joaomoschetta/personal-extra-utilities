@@ -13,7 +13,7 @@
           <img src="@/assets/sheet-icon.svg" alt="Spreadsheet icon">
         </li>
       </router-link>
-      <div class="separate-bar"></div>
+      <!-- <div class="separate-bar"></div>
 
       <li :class="liRouteClass('/help')" alt="Help navigation button">
         <img src="@/assets/interrogation-icon.png" alt="Interrogation icon">
@@ -22,7 +22,7 @@
       
       <li :class="liRouteClass('/settings')" alt="Settings navigation button">
         <img src="@/assets/config-icon.png" alt="Gear icon">
-      </li>
+      </li> -->
     </ul>
   </nav>
 </template>
