@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in tableItems" :key="index" >
+        <tr v-for="(item, index) in tableItems" :key="index">
           <th scope="row">{{ index }}</th>
           <td>{{ item.date }}</td>
           <td>{{ item.section }}</td>
@@ -28,73 +28,73 @@ export default {
   data: function() {
     return {
       tableItems: JSON.parse(localStorage["table"]) || []
-    }
+    };
   },
   mounted() {
-    this.$root.$on('message_time', selected => {
+    this.$root.$on("message_time", selected => {
       let filtered = this.tableItems.filter(item => {
-        if(item.section == selected) {
+        if (item.section == selected) {
           return true;
         }
       });
       let totalSectionTime = filtered
         .map(item => Number(item.time))
         .reduce((acc, cur) => acc + cur, 0);
-      
-      this.$root.$emit('total_time_message', totalSectionTime);
-    })
-  },
-}
+
+      this.$root.$emit("total_time_message", totalSectionTime);
+    });
+  }
+};
 </script>
 
 <style lang="scss">
-  @import "@/scss/_variables.scss";
+@import "@/scss/_variables.scss";
 
-  table {
-    margin-top: 30px;
-    width: 100%;
-    
-    tr > * {
-      background: $gray-color;
-      text-align: center;
-      font-size: 1.05rem;
+table {
+  margin-top: 30px;
+  width: 100%;
 
-      border-radius: 5px;
-      padding: 10px;
-    }
-    
-    th {
-      color: white;
-    }
+  tr > * {
+    background: $gray-color;
+    text-align: center;
+    font-size: 1.05rem;
 
-    thead tr {
-      & > * {
-        background: $secondary-light-color;
-      }
+    border-radius: 5px;
+    padding: 10px;
+  }
 
-      .id {
-        width: 65px;
-        background: $primary-color;
-      }
+  th {
+    color: white;
+  }
 
-      .date {
-        width: 130px;
-      }
-
-      .section {
-        width: 220px;
-      }
-
-      .time {
-        width: 200px;
-      }
+  thead tr {
+    & > * {
+      background: $secondary-light-color;
     }
 
-    tbody {
-      th {
-        background: $primary-light-color;
-        font-weight: 400;
-      }
+    .id {
+      width: 65px;
+      background: $primary-color;
+    }
+
+    .date {
+      width: 130px;
+    }
+
+    .section {
+      width: 220px;
+    }
+
+    .time {
+      width: 200px;
     }
   }
+
+  tbody {
+    th {
+      background: $primary-light-color;
+      font-weight: 400;
+    }
+  }
+}
 </style>

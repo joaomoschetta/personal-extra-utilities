@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import ViewStructure from '../components/ViewStructure';
+import ViewStructure from "../components/ViewStructure";
 
 export default {
   components: {
     ViewStructure
   }
-}
+};
 </script>

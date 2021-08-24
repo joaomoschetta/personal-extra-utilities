@@ -2,19 +2,23 @@
   <div class="daily-update">
     <form>
       <p>Daily update</p>
-      <input type="text" v-model="formMessage.message" placeholder="Message">
+      <input type="text" v-model="formMessage.message" placeholder="Message" />
       <div class="time">
-        <input id="minutes" v-model="formMessage.time"  type="number" >
+        <input id="minutes" v-model="formMessage.time" type="number" />
         <label for="minutes">Time (in minutes)</label>
       </div>
       <div class="section-send">
         <select id="section" v-model="formMessage.section" required>
           <option value="0" selected disabled>Selecte a section</option>
-          <option v-for="(option, index) in options" :key="index" :value="option">
+          <option
+            v-for="(option, index) in options"
+            :key="index"
+            :value="option"
+          >
             {{ option }}
           </option>
         </select>
-        <input type="submit" @click.prevent="submit()" value="Send">
+        <input type="submit" @click.prevent="submit()" value="Send" />
       </div>
     </form>
   </div>
@@ -30,9 +34,9 @@ export default {
         date: this.getDate(),
         section: "",
         message: "mensagem",
-        time: 0,
+        time: 0
       }
-    }
+    };
   },
   methods: {
     submit: function() {
@@ -43,7 +47,7 @@ export default {
       localStorage.setItem("table", JSON.stringify(this.table));
 
       this.formMessage.message = "";
-      this.formMessage.time = 0;    
+      this.formMessage.time = 0;
       this.formMessage.selected = 0;
     },
     getDate: function() {
@@ -54,100 +58,101 @@ export default {
 
       return `${month}/${day}/${year}`;
     }
-  },
-}
+  }
+};
 </script>
 
 <style lang="scss">
-  @import "@/scss/_variables.scss";
+@import "@/scss/_variables.scss";
 
-  .daily-update {
-    margin-top: 30px;
-    background: $primary-light-color;
-    border-radius: 15px;
-    padding: 1rem;
+.daily-update {
+  margin-top: 30px;
+  background: $primary-light-color;
+  border-radius: 15px;
+  padding: 1rem;
 
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-      input, select {
-        outline: none;
+    input,
+    select {
+      outline: none;
+    }
+
+    input[placeholder="Message"],
+    .time,
+    .section-send {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    input[placeholder="Message"],
+    #minutes,
+    select {
+      padding: 10px;
+      background: $gray-color;
+      border-radius: 15px;
+    }
+
+    p {
+      color: white;
+      font-weight: bold;
+    }
+
+    .time {
+      input {
+        width: 100px;
+        text-align: center;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          margin: 0;
+        }
       }
 
-      input[placeholder="Message"],
-      .time,
-      .section-send {
-        width: 100%;
-        margin-top: 15px;
-      }
-
-      input[placeholder="Message"],
-      #minutes,
-      select {
-        padding: 10px;
-        background: $gray-color;
-        border-radius: 15px;
-      }
-
-      p {
+      label {
+        font-size: 1rem;
+        margin-left: 10px;
         color: white;
-        font-weight: bold;
+      }
+    }
+
+    .section-send {
+      display: flex;
+      justify-content: space-between;
+
+      select {
+        flex-grow: 1;
+        min-width: 200px;
+
+        //align text to center
+        text-align: center;
+        text-align-last: center;
+        -moz-text-align-last: center;
+
+        //re-style arrow of select dropdown
+        @import "@/scss/_selectArrow.scss";
       }
 
-      .time {
-        input {
-          width: 100px;
-          text-align: center;
+      input {
+        padding: 10px;
+        border-radius: 15px;
+        margin-left: 15px;
+        background: $secondary-color;
 
-          &::-webkit-inner-spin-button, 
-          &::-webkit-outer-spin-button { 
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            margin: 0; 
-          }
-        }
+        color: white;
+        font-weight: 700;
 
-        label {
-          font-size: 1rem;
-          margin-left: 10px;
-          color: white;
-        }
-      }
-
-      .section-send {
-        display: flex;
-        justify-content: space-between;
-
-        select {
-          flex-grow: 1;
-          min-width: 200px;
-
-          //align text to center
-          text-align: center;
-          text-align-last: center;
-          -moz-text-align-last: center;
-
-          //re-style arrow of select dropdown
-          @import "@/scss/_selectArrow.scss";
-        }
-
-        input {
-          padding: 10px;
-          border-radius: 15px;
-          margin-left: 15px;
-          background: $secondary-color;
-
-          color: white;
-          font-weight: 700;
-
-          &:hover {
-            cursor: pointer;
-          }
+        &:hover {
+          cursor: pointer;
         }
       }
     }
   }
+}
 </style>

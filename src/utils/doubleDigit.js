@@ -9,4 +9,4 @@ export default function doubleDigitTest(number) {
   } else {
     return number;
   }
-};
+}

@@ -19,79 +19,79 @@
 </template>
 
 <script>
-import ProgressiveTimer from './Progressive';
-import RegressiveTimer from './Regressive';
-import PomodoroTimer from './Pomodoro';
-import NotePad from './Notes';
-import Checklist from './Checklist';
-import DailyUpdate from './Form';
+import ProgressiveTimer from "./Progressive";
+import RegressiveTimer from "./Regressive";
+import PomodoroTimer from "./Pomodoro";
+import NotePad from "./Notes";
+import Checklist from "./Checklist";
+import DailyUpdate from "./Form";
 
 export default {
-    components: {
-      ProgressiveTimer,
-      RegressiveTimer,
-      PomodoroTimer,
-      NotePad,
-      Checklist,
-      DailyUpdate,
-    },
-}
+  components: {
+    ProgressiveTimer,
+    RegressiveTimer,
+    PomodoroTimer,
+    NotePad,
+    Checklist,
+    DailyUpdate
+  }
+};
 </script>
 
 <style scoped lang="scss">
-  @import "@/scss/_variables";
+@import "@/scss/_variables";
 
-  main {
-    background: $background-color;
-    padding: 2.5rem 6rem;
+main {
+  background: $background-color;
+  padding: 2.5rem 6rem;
 
-    display: grid;
-    grid-template-areas: 
-      "timer timer timer"
-      "note note utils";
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 4fr;
-    gap: 30px;
+  display: grid;
+  grid-template-areas:
+    "timer timer timer"
+    "note note utils";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 4fr;
+  gap: 30px;
 
-    .timers {
-      grid-area: timer;
+  .timers {
+    grid-area: timer;
 
-      display: flex;
-      justify-content: space-between;
-      align-items: stretch;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
 
-      & > * {
-        flex-basis: calc(100% - 60px);
-        margin-right: 30px;
+    & > * {
+      flex-basis: calc(100% - 60px);
+      margin-right: 30px;
 
-        border-radius: 15px;
-        padding: 1rem;  
+      border-radius: 15px;
+      padding: 1rem;
 
-        &:nth-child(3) {
-          margin-right: 0;
-        }
-      }
-    }
-
-    .note-pads {
-      grid-area: note;
-      display: flex;
-      
-      *:first-child {
-        margin-right: 30px;
-      }
-    }
-
-    .utils {
-      grid-area: utils;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      .checklist {
-        flex-grow: 1;
+      &:nth-child(3) {
+        margin-right: 0;
       }
     }
   }
+
+  .note-pads {
+    grid-area: note;
+    display: flex;
+
+    *:first-child {
+      margin-right: 30px;
+    }
+  }
+
+  .utils {
+    grid-area: utils;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .checklist {
+      flex-grow: 1;
+    }
+  }
+}
 </style>

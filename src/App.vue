@@ -11,11 +11,10 @@ export default {
   /*components: {
     Home
   },*/
-}
+};
 </script>
 
 <style lang="scss">
-
 // font set
 @import "./scss/_variables";
 * {
@@ -29,6 +28,5 @@ export default {
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  
 }
 </style>

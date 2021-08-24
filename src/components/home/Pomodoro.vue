@@ -12,9 +12,22 @@
 
     <div class="right">
       <div class="top-line">
-        <img src="@/assets/play-icon.png" @click="playTriggerMethod()" alt="Pause icon">
-        <img src="@/assets/pause-icon.png" @click="pauseTriggerMethod()" alt="Play icon">
-        <img class="reset" src="@/assets/arrow-loop-icon.png" @click="resetTriggerMethod()" alt="Reset arrow icon">
+        <img
+          src="@/assets/play-icon.png"
+          @click="playTriggerMethod()"
+          alt="Pause icon"
+        />
+        <img
+          src="@/assets/pause-icon.png"
+          @click="pauseTriggerMethod()"
+          alt="Play icon"
+        />
+        <img
+          class="reset"
+          src="@/assets/arrow-loop-icon.png"
+          @click="resetTriggerMethod()"
+          alt="Reset arrow icon"
+        />
       </div>
       <div class="bottom-line">
         <div class="pomodoro-break" @click="pomodoro()">
@@ -32,19 +45,19 @@
 </template>
 
 <script>
-import TimerLeft from '@/components/home/Timers/TimerLeft';
+import TimerLeft from "@/components/home/Timers/TimerLeft";
 
 export default {
   components: {
     TimerLeft
   },
-  data: function () {
+  data: function() {
     return {
       pomodoroTime: "00",
       playTrigger: 0,
       pauseTrigger: 0,
       resetTrigger: 0
-    }
+    };
   },
   methods: {
     playTriggerMethod: function() {
@@ -64,83 +77,84 @@ export default {
     },
     longBreak: function() {
       this.pomodoroTime = "10";
-    },
-  },
-}
+    }
+  }
+};
 </script>
 
 <style lang="scss">
-  @import "@/scss/_variables.scss";
+@import "@/scss/_variables.scss";
 
-  .timer {
-    background: $secondary-color;
+.timer {
+  background: $secondary-color;
+  display: flex;
+  justify-content: space-around;
+
+  .left {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 
-    .left {
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 5px;
+
+    .top-line {
       display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
       align-items: center;
-    }
 
-    .right {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      margin-left: 5px;
+      img {
+        width: 50px;
+        border-radius: 10px;
 
-      .top-line {
-        display: flex;
-        align-items: center;
-
-        img {
-          width: 50px;
-          border-radius: 10px;
-
-          &:hover {
-            cursor: pointer;
-            background: $secondary-light-color;
-          }
-        }
-
-        .reset {
-          width: 50px;
-          padding: 6px;
-        }
-      }
-
-      .bottom-line {
-        display: flex;
-        justify-content: space-between;
-        margin: 0 2px 15px;
-
-        .pomodoro-break, .partial-break {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 4px;
-          border-radius: 10px;
-
-          p {
-            font-size: 1.1rem;
-            font-weight: 700;
-          }
-
-          &:hover {
-            cursor: pointer;
-          }
-        }
-
-        .pomodoro-break {
-          background: $secondary-dark-color;
-          color: white;
-        }
-
-        .partial-break {
+        &:hover {
+          cursor: pointer;
           background: $secondary-light-color;
         }
       }
+
+      .reset {
+        width: 50px;
+        padding: 6px;
+      }
+    }
+
+    .bottom-line {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 2px 15px;
+
+      .pomodoro-break,
+      .partial-break {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+        border-radius: 10px;
+
+        p {
+          font-size: 1.1rem;
+          font-weight: 700;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .pomodoro-break {
+        background: $secondary-dark-color;
+        color: white;
+      }
+
+      .partial-break {
+        background: $secondary-light-color;
+      }
     }
   }
+}
 </style>

@@ -2,19 +2,19 @@
   <div class="left">
     <p @click="playtest()">{{ timerTitle }}</p>
     <div class="time-display">
-      <input 
+      <input
         type="number"
         min="0"
         v-model="minuteElement"
-        :class="{disabled: isPomodoro}"
-      >
+        :class="{ disabled: isPomodoro }"
+      />
       :
-      <input 
+      <input
         type="number"
         min="0"
         v-model="secondElement"
-        :class="{disabled: isPomodoro}"
-      >
+        :class="{ disabled: isPomodoro }"
+      />
     </div>
   </div>
 </template>
@@ -23,12 +23,12 @@
 import doubleDigit from "@/utils/doubleDigit.js";
 
 export default {
-  data: function () {
+  data: function() {
     return {
       minuteElement: "01",
       secondElement: "00",
       timerInterval: undefined,
-      running: false,
+      running: false
     };
   },
   props: {
@@ -49,18 +49,17 @@ export default {
       this.secondElement = secs;
     },
     timer: function() {
-      if(this.running) return;
+      if (this.running) return;
       this.running = true;
 
       let mins = Number(this.minuteElement);
       let secs = Number(this.secondElement);
 
-
       this.timerInterval = setInterval(() => {
-        if (this.progressive){
+        if (this.progressive) {
           // progressive timer
           secs++;
-          
+
           // seconds round
           if (secs >= 60) {
             mins += Math.floor(secs / 60);
@@ -69,7 +68,7 @@ export default {
         } else {
           // regressive timer
           if (secs == 0 && mins == 0) return; // return if no initial value
-          
+
           secs--;
 
           // seconds round
@@ -84,7 +83,7 @@ export default {
           } else if (secs <= 0 && mins <= 0) {
             this.pauseTimer();
 
-            let audio = new Audio(require('@/assets/bell.mp3'));
+            let audio = new Audio(require("@/assets/bell.mp3"));
             audio.volume = 0.5;
             audio = audio.play();
           }
@@ -97,7 +96,7 @@ export default {
       this.running = false;
     },
     pomodoro: function() {
-      if(this.running) this.pauseTimer();
+      if (this.running) this.pauseTimer();
       this.minuteElement = this.pomodoroTime;
       this.secondElement = "00";
       this.timer();
@@ -115,48 +114,48 @@ export default {
     },
     pomodoroTime: function() {
       this.pomodoro();
-    },
-  },
-}
+    }
+  }
+};
 </script>
 
 <style scoped lang="scss">
-  .time-display {
-    display: flex;
-    font-weight: normal;
+.time-display {
+  display: flex;
+  font-weight: normal;
+  font-size: 2.3rem;
+
+  input {
+    align-self: center;
+    width: 90px;
+    background: none;
     font-size: 2.3rem;
 
-    input {
-      align-self: center;
-      width: 90px;
-      background: none;
-      font-size: 2.3rem;
-
-        &:nth-child(1) {
-          text-align: right;
-        }
-
-        // hide border when selected
-        &:focus {
-          outline: none;
-        }
-
-        // hide side arrows
-        &::-webkit-inner-spin-button, 
-        &::-webkit-outer-spin-button {
-          -webkit-appearance: none; 
-          margin: 0; 
-        }
+    &:nth-child(1) {
+      text-align: right;
     }
 
-    .disabled {
-      pointer-events: none;
-      width: 60px;
+    // hide border when selected
+    &:focus {
+      outline: none;
+    }
+
+    // hide side arrows
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
   }
 
-  p {
-    font-weight: 700;
-    font-size: 1.25rem;
+  .disabled {
+    pointer-events: none;
+    width: 60px;
   }
+}
+
+p {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
 </style>

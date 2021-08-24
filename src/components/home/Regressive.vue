@@ -16,15 +16,15 @@
 </template>
 
 <script>
-import TimerLeft from '@/components/home/Timers/TimerLeft';
-import TimerRight from '@/components/home/Timers/TimerRight';
+import TimerLeft from "@/components/home/Timers/TimerLeft";
+import TimerRight from "@/components/home/Timers/TimerRight";
 
 export default {
-  data: function () {
+  data: function() {
     return {
       playTrigger: 0,
       pauseTrigger: 0
-    }
+    };
   },
   methods: {
     playTriggerMethod() {
@@ -37,24 +37,25 @@ export default {
   components: {
     TimerLeft,
     TimerRight
-  },
+  }
 };
 </script>
 
 <style scoped lang="scss">
-  @import "@/scss/_variables.scss";
+@import "@/scss/_variables.scss";
 
-  .timer {
-    background: $primary-light-color;
+.timer {
+  background: $primary-light-color;
 
+  display: flex;
+  justify-content: space-around;
+
+  .left,
+  .right {
     display: flex;
-    justify-content: space-around;
-
-    .left, .right {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-    }
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
   }
+}
 </style>
