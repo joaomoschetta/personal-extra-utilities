@@ -14,7 +14,7 @@
 export default {
   data: function() {
     return {
-      items: JSON.parse(localStorage.getItem("items")) 
+      items: JSON.parse(localStorage.getItem("items")) || []
     }
   },
   props: {
