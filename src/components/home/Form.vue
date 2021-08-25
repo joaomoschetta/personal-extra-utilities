@@ -33,7 +33,7 @@ export default {
       formMessage: {
         date: this.getDate(),
         section: "",
-        message: "mensagem",
+        message: "",
         time: 0
       }
     };

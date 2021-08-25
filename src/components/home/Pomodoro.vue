@@ -15,28 +15,31 @@
         <img
           src="@/assets/play-icon.png"
           @click="playTriggerMethod()"
-          alt="Pause icon"
+          alt="Play icon"
+          title="Play"
         />
         <img
           src="@/assets/pause-icon.png"
           @click="pauseTriggerMethod()"
-          alt="Play icon"
+          alt="Pause icon"
+          title="Pause"
         />
         <img
           class="reset"
           src="@/assets/arrow-loop-icon.png"
           @click="resetTriggerMethod()"
           alt="Reset arrow icon"
+          title="Reset"
         />
       </div>
       <div class="bottom-line">
-        <div class="pomodoro-break" @click="pomodoro()">
+        <div class="pomodoro-break" @click="pomodoro()" title="Pomodoro 25min">
           <p>PM</p>
         </div>
-        <div class="partial-break" @click="shortBreak()">
+        <div class="partial-break" @click="shortBreak()" title="Short Break 5min">
           <p class="partial-break">SB</p>
         </div>
-        <div class="partial-break" @click="longBreak()">
+        <div class="partial-break" @click="longBreak()" title="Long Break 10min">
           <p class="partial-break">LB</p>
         </div>
       </div>

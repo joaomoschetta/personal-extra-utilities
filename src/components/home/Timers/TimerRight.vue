@@ -1,7 +1,17 @@
 <template>
   <div class="right">
-    <img src="@/assets/play-icon.png" @click="playTimer()" alt="Play icon" />
-    <img src="@/assets/pause-icon.png" @click="pauseTimer()" alt="Pause icon" />
+    <img 
+      src="@/assets/play-icon.png" 
+      @click="playTimer()" 
+      alt="Play icon" 
+      title="Play"
+    />
+    <img 
+      src="@/assets/pause-icon.png" 
+      @click="pauseTimer()" 
+      alt="Pause icon" 
+      title="Pause"
+    />
   </div>
 </template>
 

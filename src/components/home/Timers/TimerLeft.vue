@@ -25,7 +25,7 @@ import doubleDigit from "@/utils/doubleDigit.js";
 export default {
   data: function() {
     return {
-      minuteElement: "01",
+      minuteElement: "00",
       secondElement: "00",
       timerInterval: undefined,
       running: false
