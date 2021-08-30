@@ -1,7 +1,10 @@
 <h1 align="center">Personal Utilities</h1>
 
-https://www.youtube.com/embed/PQU1_LLPxgI
-
+<div align="center">
+  
+[![Project showcase](https://img.youtube.com/vi/PQU1_LLPxgI/0.jpg)](https://www.youtube.com/watch?v=PQU1_LLPxgI)
+</div>
+  
 Veja o design [aqui](https://www.figma.com/file/bKb3KBaDXra06tUsDATf6y/New-Tab-Extra-Utilities?node-id=22%3A1)
 
 ## ❔ Sobre
