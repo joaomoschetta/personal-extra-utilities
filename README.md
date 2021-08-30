@@ -1,27 +1,30 @@
-# Personal extra utilities
+<h1 align="center">Personal Utilities</h1>
 
-## About
+https://www.youtube.com/embed/PQU1_LLPxgI
 
-This is a project made to gain experience in Web Development and test Vue framework. Have been projected to suply some personal problems and demands. The project contains fields to make notes, some timers and daily updates to note how many time spended in each study that is made.
+Veja o design [aqui](https://www.figma.com/file/bKb3KBaDXra06tUsDATf6y/New-Tab-Extra-Utilities?node-id=22%3A1)
 
-## Stack
+## ❔ Sobre
+
+Esse e um projeto desenvolvido com Vue feito para atender algumas demandas pessoais. Foi meu primeiro grande projeto e o meu primeiro contato com um framework frontend. A aplicação possui as seguintes funcionalidades: 
+
+- Temporizador Pomodoro
+- Temporizadores (progressivo e regressivo)
+- Lista de tarefas
+- Blocos de notas
+- Gerenciamento de tempo
+  - Criar categoria
+  - Salvar dado contendo: mensagem, tempo gasto e categoria
+  - Consultar total de tempo de determinada categoria
+
+## 💻 Tecnologias
 
 - HTML / CSS / Javascript
 - Vue
-  - Router
-- Express
 
-## Design
-
-  See the project [Design here.](https://www.figma.com/file/bKb3KBaDXra06tUsDATf6y/New-Tab-Extra-Utilities?node-id=22%3A1)
-
-## Project setup
+## ⚙ Setup
 ```
 npm install
 
 npm run serve
-
-npm run build
-
-npm run lint
 ```
